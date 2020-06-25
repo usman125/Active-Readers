@@ -137,6 +137,7 @@ class Register extends Component {
             this.renderButton()
           }
         </div>
+        <GoogleMap />
       </div>
     );
   }

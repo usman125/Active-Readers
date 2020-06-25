@@ -48,21 +48,22 @@ export const getUsersList = (userId) => {
     TrakeApi.get('/alluserswithstats/?userId=' + userId).then(
       result => {
         if (result.data[0].status === 1) {
-          let usersArray = _.toArray(
-            _.mapValues(result.data[0].users, function (user) {
-              return {
-                ...user,
-                _id: user._id._Id,
-                name: user._id.name,
-                email: user._id.email,
-                location: user._id.location,
-              }
-            })
-          );
-          console.log("RESULT ALL USERS:--", result.data[0].users, usersArray);
+          // let usersArray = _.toArray(
+          //   _.mapValues(result.data[0].users, function (user) {
+          //     return {
+          //       ...user,
+          //       _id: user._id._Id,
+          //       name: user._id.name,
+          //       email: user._id.email,
+          //       location: user._id.location,
+          //     }
+          //   })
+          // );
+          // console.log("RESULT ALL USERS:--", result.data[0].users, usersArray);
+          console.log("RESULT ALL USERS:--", result.data[0].users);
           dispatch({
             type: GET_ACTIVE_USERS_LIST,
-            payload: usersArray
+            payload: result.data[0].users
           });
         } else {
 
